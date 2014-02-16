@@ -1,4 +1,3 @@
-define(["require", "exports"], function(require, exports) {
     
 
     var JadoosCordovaWrapper = (function () {
@@ -47,5 +46,3 @@ define(["require", "exports"], function(require, exports) {
         };
         return JadoosCordovaWrapper;
     })();
-    exports.JadoosCordovaWrapper = JadoosCordovaWrapper;
-});
