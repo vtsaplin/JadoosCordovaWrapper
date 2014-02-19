@@ -7,19 +7,35 @@
     <description>Jadoos Cordova Wrapper</description>
     <license>Mozilla Public License 2.0</license>
 
-    <js-module src="www/jadoos.core.js" name="Twister">
+    <js-module src="www/jadoos.cordova-plugin.js">
         <clobbers target="window.jadoos" />
     </js-module>
 
-    <js-module src="www/jadoos.cordova-plugin.js" />    
+    <js-module src="www/jadoos.core.js" name="core"/>    
     <js-module src="www/jadoos.jquery-plugin.js" />
     
     <!-- Android Platform -->
     <platform name="android">
+
+	<preference name="URN" />
+	<preference name="SECRET" />
+
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="JadoosWrapper">
         	<param name="android-package" value="com.jadoos.android.JadoosCordovaWrapper" />
   	    </feature>
+        </config-file>
+
+	<config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.INTERNET" />
+	    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        </config-file>
+
+	<config-file target="AndroidManifest.xml" parent="/manifest/application">
+	    <meta-data android:name="com.jadoos.android.ApplicationURN" android:value="$URN" />
+	    <meta-data android:name="com.jadoos.android.SharedSecret" android:value="$SECRET" />
         </config-file>
 
         <source-file src="src/android/JadoosCordovaWrapper.java" target-dir="src/com/jadoos/android" />        
