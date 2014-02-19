@@ -6,20 +6,23 @@
     <name>Jadoos</name>
     <description>Jadoos Cordova Wrapper</description>
     <license>Mozilla Public License 2.0</license>
+
+    <js-module src="www/jadoos.core.js" name="Twister">
+        <clobbers target="window.jadoos" />
+    </js-module>
+
+    <js-module src="www/jadoos.cordova-plugin.js" />    
+    <js-module src="www/jadoos.jquery-plugin.js" />
     
     <!-- Android Platform -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="JadoosWrapper">
-        		<param name="android-package" value="com.jadoos.android.JadoosCordovaWrapper" />
-  			</feature>
+        	<param name="android-package" value="com.jadoos.android.JadoosCordovaWrapper" />
+  	    </feature>
         </config-file>
 
         <source-file src="src/android/JadoosCordovaWrapper.java" target-dir="src/com/jadoos/android" />        
-    	
-    	<source-file src="www/jadoos.core.js" target-dir="assets/www/js" />
-    	<source-file src="www/jadoos.cordova-plugin.js" target-dir="assets/www/js" />
-    	<source-file src="www/jadoos.jquery-plugin.js" target-dir="assets/www/js" />
         
     </platform>
 
