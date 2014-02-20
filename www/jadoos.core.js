@@ -144,3 +144,5 @@ var JadoosSDK;
     })();
     JadoosSDK.Account = Account;
 })(JadoosSDK || (JadoosSDK = {}));
+
+module.exports = JadoosSDK;
